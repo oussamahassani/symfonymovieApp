@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tous les films{% endblock %}
+
+{% block body %}
+
+<div class="container">
+    <div class="row justify-content-end">
+        <br/>
+        </br>
+        <h1>Tous les films</h1>
+        <br/>
+        </br>
+        <h2 id="header-margin">Retrouvez tous les films d'horreur présents sur <i>Internet Horror Movies Database</i>.</h2>
+        <br/>
+        </br>
+        {% for movie in movieList %}
+            <div class="col-3">
+                <a href="{{ path('movie_get_one', { 'id': movie.id }) }}">
+                    <img src="https://image.tmdb.org/t/p/w300/{{ movie.image }}" class="img-fluid">
+                    <b><p class="text-xl-center">{{ movie.title }}</p></b>
+                </a>
+                <br/>
+                </br>
+            </div>
+        {% endfor %}
+        <div class="navigation">
+            {{ knp_pagination_render(movieList) }}
+        </div>
+    </div>
+</div>
+{% endblock %}

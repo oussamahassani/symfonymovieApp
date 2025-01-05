@@ -1,0 +1,131 @@
+html {
+    overflow-y: scroll;
+}
+
+body {
+    background-color: rgba(244, 179, 94, 0.831);
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    background-color: white;
+    height: 100%;
+}
+
+content {
+    padding: 125px 50px 50px;
+    flex-grow: 1;
+}
+
+footer {
+    text-align: left;
+    padding: 10px;
+    font-size: 20px;
+}
+
+#breadcrumb, #admin-nav {
+    color: grey;
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+}
+    #breadcrumb a, #admin-nav a {
+        color: grey;
+        text-decoration: underline;
+    }
+
+h1 {
+    clear: both;
+    color: #333;
+    font-family: 'Montserrat';
+    font-size: 2.5rem;
+    font-weight: 600;
+    text-align: center;
+    text-transform: uppercase;
+    margin-top: 1.5rem;
+}
+
+h2 {
+    color: #999;
+    font-family: 'Montserrat';
+    font-size: 1.1rem;
+    font-weight: 500;
+    text-align: center;
+}
+
+a {
+color: rgba(234, 129, 9, 0.812);
+}
+
+#header-margin {
+    margin-bottom: 2rem;
+}
+
+#genres {
+    line-height: 1.8rem;
+    font-size: 0.75rem;
+}
+    #genres h3 {
+        font-size: 1rem;
+        font-weight: bold;
+    }
+
+.movie-main {
+}
+    .movie-main .title {
+        font-size: 1.1rem;
+        font-weight: bold;
+    }
+
+    .movie-main p {
+        color: grey;
+        font-size: 0.8rem;
+        margin-bottom: 0.3rem;
+    }
+
+    .movie-main .summary {
+        color: black;
+        font-size: 1rem;
+        margin-top: 1.2rem;
+    }
+
+    .movie-main .score {
+        color: #FECC00;
+        font-size: 1rem;
+        font-weight: bold;
+        height: 19px;
+        margin-top: 1.5rem;
+    }
+        .movie-main .score img {
+            background: #f1f1f1 url('../images/stars-bg.png') no-repeat;
+            margin-right: 0.5rem;
+            vertical-align: top;
+        }
+
+#show h2 {
+    color: #333;
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: left;
+    text-transform: uppercase;
+    margin-top: 2rem;
+}
+
+#show .infos {
+    color: black;
+    font-size: 0.9rem;
+}
+    #show .infos label {
+        color: grey;
+        width: 200px;
+    }
+
+#show .casting .actor {
+    font-weight: bold;
+    font-size: 0.95rem;
+}
+
+#show .casting .role {
+    color: grey;
+    font-size: 0.8rem;
+}

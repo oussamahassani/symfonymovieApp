@@ -1,0 +1,139 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ movieDetail.title }}{% endblock %}
+
+{% block body %}
+
+<div class="container">
+    <div class="row justify-content-end">
+        <br/>
+        </br>
+        <h1 class="display-2" id="header-margin">{{ movieDetail.title }}</h1>
+        <img src="https://image.tmdb.org/t/p/w500/{{ movieDetail.image }}">
+        <br/>
+        </br>
+        <h2 class="mb-2 bg-secondary text-white rounded">Synopsis et détails</h2>
+        <p>{{ movieDetail.synopsis }}</p>
+        <br/>
+        </br>
+        <h2 class="mb-2 bg-secondary text-white rounded">Année de production du film</h2>
+        <p class="infos"><label>Année de production :  </label> <b>{{ movieDetail.releaseDate|date('d-m-Y') }}</b></p>
+        <br/>
+        </br>
+        <h2 class="mb-2 bg-secondary text-white rounded">Budget du film</h2>
+        {% if  movieDetail.budget > 0 %}
+        <p class="infos"><label>coût total du film :  </label> <b>{{ movieDetail.budget }} $</b></p>
+        {% else %}
+        <p class="infos"><label>coût total du film :  </label> <b>non indiqué</b></p>
+        {% endif %}
+        <br/>
+        </br>
+        <h2 class="mb-2 bg-secondary text-white rounded" id="casting">Acteurs et actrices</h2>
+        <div class="row casting">
+        {% for casting in movieDetail.actors %}
+            <div class="col-3">
+                <div class="actor">{{ casting.name }}</div>
+                {% if casting.image %}
+                    <div class="image"><img src="https://image.tmdb.org/t/p/w92/{{ casting.image }}" class="img-fluid"></div>
+                {% endif %}
+            </div>
+        {% endfor %}
+        </div>
+        <br/>
+        </br>
+        <h2 class="mb-2 bg-secondary text-white rounded" id="casting">Réalisateurs</h2>
+        <div class="row casting">
+        {% for directors in movieDetail.directors %}
+            <div class="col-3">
+                <div class="actor">{{ directors.name }}</div>
+                {% if directors.image %}
+                    <div class="image"><img src="https://image.tmdb.org/t/p/w92/{{ directors.image }}" class="img-fluid"></div>
+                {% endif %}
+            </div>
+        {% endfor %}
+        <br/>
+        </br>
+        </div>
+        {# 
+        <br/>
+        </br>
+        <h2 id="casting">Catégories et sous-catégories du film</h2>
+        <div class="row casting">
+        {% for type in movieDetail.types %}
+            <div class="col-3">
+                <div class="actor">{{ type.name }}</div>
+            </div>
+        {% endfor %}
+        </div>
+        #}
+        <br/>
+        </br>
+        <br/>
+        </br>
+        <h2 class="mb-2 bg-secondary text-white rounded" id="casting">Langue originale du film</h2>
+        <div class="row casting">
+            {% if movieDetail.language  == "en" %}
+                <p class="infos"><label>Langue originale du film :  </label><b> Anglais</b>.</p>
+            {% endif %}
+            {% if movieDetail.language  == "es" %}
+                <p class="infos"><label>Langue originale du film :  </label> <b> Espagnol</b>.</p>
+            {% endif %}
+            {% if movieDetail.language  == "ru" %}
+                <p class="infos"><label>Langue originale du film :  </label> <b> Russe</b>.</p>
+            {% endif %}
+            {% if movieDetail.language  == "fr" %}
+                <p class="infos"><label>Langue originale du film :  </label> <b> Français</b>.</p>
+            {% endif %}
+            {% if movieDetail.language  == "ja" %}
+                <p class="infos"><label>Langue originale du film :  </label> <b> Japonais</b>.</p>
+            {% endif %}
+            {% if movieDetail.language  == "it" %}
+                <p class="infos"><label>Langue originale du film :  </label> <b> Italien</b>.</p>
+            {% endif %}
+            {# <p class="infos"><label>Langue parlé dans le film :  </label> {{ movieDetail.language }}</p> #}
+        </div>
+        <br/>
+        </br>
+        <br/>
+        </br>
+        {# 
+        {% if app.user is not null %}
+            <h2 class="mb-2 bg-secondary text-white rounded" id="casting">Favoris</h2>
+            #}
+            <div class="row casting">
+                <div class="form-group">
+                {#}
+                    {% if favorite %}
+                        <input id="bookmark1" type="checkbox" name="bookmark" checked>
+                    {% else %}
+                    #}
+                        <input id="bookmark2" type="checkbox" name="bookmark">
+                    {#}
+                    {% endif %}
+                    #}
+                    <label for="bookmark">Ajouter à la liste des films favoris</label>
+                </div>
+            </div>
+        {#}
+        {% else %}
+            <h2 class="mb-2 bg-secondary text-white rounded" id="casting"></h2>
+        {% endif %}
+        #}
+    </div>
+    <br/>
+    </br>
+    <br/>
+    </br>
+    <details>
+        <summary  class="mb-2 bg-secondary text-white rounded" id="casting">Les commentaires : </summary>
+        {% for comment in comments %}
+        {# Code a adapter pour récupérer les commentaires en rapport avec le film et que chaque utilisateur apparaissent sous son commentaire.
+        <p>{{ comment->getContent() }}</p>
+        <p>{{ comment->getUser()->getEmail() }}</p> #}
+            <p>Contenu textuel du commentaire en rapport avec le film affiché.</p>
+            <p>Informations sur l'auteur du commentaire.</p>
+            <p>Suite des autres messsages ...</p>
+        {% endfor %}
+    </details>
+</div>
+{% endblock %}

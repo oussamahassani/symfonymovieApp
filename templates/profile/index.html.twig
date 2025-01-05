@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profil de : {{user.email}}{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row justify-content-end">
+            <br/>
+            </br>
+            <h1>Bienvenue sur votre espace {{user.email}}</h1>
+            <br/>
+            </br>
+            <br/>
+            </br>
+            <br/>
+            </br>
+            <br/>
+            </br>
+            <h2 id="header-margin">Retrouvez ici tous les films d'horreur présents sur dans votre liste de films favoris :</h2>
+            <br/>
+            </br>
+            {% for bookmark in bookmarks %}
+                <div class="d-flex justify-content-center">
+                    <ul class="list-unstyled">
+                        {% for movie in movies %}
+                            <div class="col-20">
+                                {% if movie.id == bookmark.movie.id %}
+                                    <li class="p-2 flex-fill"><a href="{{ path('movie_get_one', { 'id': movie.id }) }}">{{ movie.title }}</a></li>
+                                {% endif %}
+                            </div>
+                        {% endfor %}
+                    </ul>
+                    <br/>
+                    </br>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+
+
+

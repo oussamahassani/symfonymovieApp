@@ -1,5 +1,4 @@
-# IHMD
-#### :hocho: Internet Horror Movie Database :skull:
+#### :hocho: Internet  Movie Database:
 
 ### I. Get started
 To start develop:

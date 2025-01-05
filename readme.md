@@ -18,9 +18,5 @@ To populate database with *"The Movie DB API"* data follow this steps :
 2. Run the `symfony console ihmdb:populate:database`
 3. That's all !!
 
-#### ***Populate command options:***
-`-t / --truncate` : Truncate database before populate (index restart to 1)
 
-`--page=int` : Select number of result page. 1 page = 20 results, ***exemple : if you want 60 movies in your database you should add --page=3 option to the command*** **(Default is 1)** 
 
-# Enjoy ! And Keep Coding !! :nerd_face: 
